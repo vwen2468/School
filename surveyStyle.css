@@ -14,10 +14,10 @@ h1{
 
 body{
 	font-family: "Calibri", sans-serif;
-	margin-left: 20px;
+	margin: 20px;
 	/*text-align:center;*/
 	font-size: 13pt;
-    background: white url(http://i68.photobucket.com/albums/i7/newphew92/bagel_zps29e40f4c.jpg) no-repeat top center;
+    background: white url(http://i68.photobucket.com/albums/i7/newphew92/fd3b869e-122d-4361-9889-50cf85e17d0f_zps5d4d4153.jpg) no-repeat top center;
     /*          bg colour image         repeat-y: repeat on yaxis; bg position*/
 
 }
@@ -47,6 +47,20 @@ a:hover{
 	}
 
 #menu{
+	text-align: center;
+	font-size: 12pt;
+	border: black solid;
+	margin: 5%;
+	background-color: white;
+}
+
+.right{
+	float:right;
+	font-size: 15pt;
+}
+
+.submitButton{
 	text-align: left;
-	font-size: 12;
+width: 200px; height: 60px;
+font-size: larger;
 }
