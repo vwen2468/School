@@ -1,4 +1,3 @@
-
 #!/usr/bin/python 
 import cgi
 import requests 
