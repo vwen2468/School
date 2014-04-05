@@ -111,7 +111,7 @@ password[y]='\0';
 }	
 fclose (file);
 if (invalid==1){
-printf("<link rel=\"stylesheet\" href=\"surveyStyle.css\">\n");
+printf("<link rel=\"stylesheet\" href=\"../surveyStyle.css\">\n");
 printf("<head>\n");
 printf("<link rel=\"shortcut icon\" href=\"http://i68.photobucket.com/albums/i7/newphew92/bagel_zps29e40f4c.jpg\">\n");
 printf("<h1>Username already taken!\n");
@@ -133,7 +133,7 @@ file=fopen("members.ssv", "a");
 fseek(file, 1, SEEK_END);
 fprintf(file, "%s %s\n", usernameInput, passwordInput);
 fclose(file);
-printf("<link rel=\"stylesheet\" href=\"surveyStyle.css\">");
+printf("<link rel=\"stylesheet\" href=\"../surveyStyle.css\">");
 printf("<head>");
 printf("<link rel=\"shortcut icon\" href=\"http://i68.photobucket.com/albums/i7/newphew92/bagel_zps29e40f4c.jpg\">");
 printf("<h1>Account created!");

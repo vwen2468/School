@@ -112,7 +112,7 @@ fclose(file);
 
 
 if (valid==1){
-printf("<link rel=\"stylesheet\" href=\"surveyStyle.css\">");
+printf("<link rel=\"stylesheet\" href=\"../surveyStyle.css\">");
 printf("<head>");
 printf("<link rel=\"shortcut icon\" href=\"http://i68.photobucket.com/albums/i7/newphew92/bagel_zps29e40f4c.jpg\">");
 printf("<h1>Welcome %s", usernameInput);
@@ -126,13 +126,14 @@ printf("<div id=\"menu\">");
 printf("<ul>");
 printf("<li><a href=\"http://www.cs.mcgill.ca/~ctrinh2/ass4/welcome.html\">Return to homepage</a></li>");
 printf("<li><a href=\"http://www.cs.mcgill.ca/~tko4/ass4/surveyCreation.html\">Click here to create a survey</a></li>");
+printf("<li><a href=\"http://www.cs.mcgill.ca/~tko4/ass4/survey.html\">Click here to take a survey</a></li>");
 printf("</ul>");
 printf("</div>");
 printf("</BODY>");
 }
 
 else{
-	printf("<link rel=\"stylesheet\" href=\"surveyStyle.css\">");
+	printf("<link rel=\"stylesheet\" href=\"../surveyStyle.css\">");
 printf("<head>");
 printf("<link rel=\"shortcut icon\" href=\"http://i68.photobucket.com/albums/i7/newphew92/bagel_zps29e40f4c.jpg\">");
 printf("<h1>Invalid username or password");
