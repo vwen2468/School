@@ -2,17 +2,17 @@
 #include <stdlib.h>
 #include <string.h>
 
-char username[30];
-char password[30];
-char* usernameInput;
-char* passwordInput;
+char username[200];
+char password[200];
+
 char* input;
 int invalid=0;
 char buffer[100];
 char c;
 int a=0;
 char string[200];
-
+char usernameInput[200];
+char passwordInput[200];
 int main(void)
 {
 FILE * file;
@@ -21,30 +21,89 @@ char buffer[100];
 printf("%s%c%c\n", "Content-Type:text/html;charset=iso-8859-1", 13, 10);
 
 int n = atoi(getenv("CONTENT_LENGTH"));
-   
+     
     // Decode String
     while ((c = getchar()) != EOF && a<n)
     {
+//printf("%c",c);
         if (a < 200)
         {
             if (c!='+' && c!='&')       //The ampersand is there for splitting string for sscanf
                 string[a]=c;
             else
-                string[a]=' ';
-            a++;
+                string[a]='=';
+            //printf("%c", string[a]);
+a++;
         }
+
     }
     string[a] = '\0';
-sscanf(string,"username=%s password=%s",usernameInput,passwordInput);
-printf("%s\n", usernameInput);
-printf("%s\n", passwordInput);
-/*
+int b=0;
+int c=0;
+int x=0;
+int y=0;
+//This is why everybody fucking hates CGI with C, sscanf can't compile to CGI FFS.
+while (string[b]!='\0'){
+	if (string[b]=='='){
+		c++;
+	}
+	if (c==3){
+		if (string[b]!='='){
+		passwordInput[y]=string[b];
+		//printf("%c", string[b]);
+		y++;
+	}
+	}	
+	if (c==1){
+		if (string[b]!='='){
+		usernameInput[x]=string[b];
+		//printf("%c", string[b]);
+		x++;
+	}	
+	}
 
-//usernameInput="bad";
-//file=fopen("members.ssv", "r");
+
+
+	b++;
+
+}
+//printf("hash\n");
+usernameInput[x]='\0';
+passwordInput[y]='\0';
+//sscanf(hash,"%s", example);
+//printf("%s\n", string);
+//sscanf(string,"username=%s password=%s",usernameInput,passwordInput);
+//printf("<p>%s\n</p>", usernameInput);
+//printf("<p>%s\n</p>", passwordInput);
+
+//usernameInput="newphew92";
+//passwordInput="hash";
+
+file=fopen("members.ssv", "r");
+//printf("hash\n");
 while (fgets(buffer, 100, file)!=NULL){
-	//printf("%s\n", buffer );
-	sscanf(buffer, "%s %s", username, password);
+b=0;
+c=0;
+x=0;
+y=0;
+//This is why everybody fucking hates CGI with C, sscanf can't compile to CGI FFS.
+while (buffer[b]!=' '){
+  
+if (buffer[b]!=' '){
+username[x]=buffer[b];
+		//printf("%c", string[b]);
+	x++;
+	}	
+
+	b++;
+
+}
+//printf("hash\n");
+username[x]='\0';
+password[y]='\0';	
+//printf("<p>user%s", username);
+//printf("|%s</p>", usernameInput);
+
 	if (strcmp(username, usernameInput)==0){
 		invalid=1;
 		break;
@@ -67,11 +126,12 @@ printf("<ul>\n");
 printf("<li><a href=\"http://www.cs.mcgill.ca/~vwen/ass4/login.html\">Click here to login</a></li>\n");
 printf("<li><a href=\"http://www.cs.mcgill.ca/~ctrinh2/ass4/welcome.html\">Click here to return home</a></li>\n");
 printf("</div>\n");
-printf("</BODY>\n");
+printf("</BODY\n");
 }
-else{
+else if (invalid==0){
 file=fopen("members.ssv", "a");
-fprintf(file, "%s %s \n", usernameInput, passwordInput);
+fseek(file, 1, SEEK_END);
+fprintf(file, "%s %s\n", usernameInput, passwordInput);
 fclose(file);
 printf("<link rel=\"stylesheet\" href=\"surveyStyle.css\">");
 printf("<head>");
@@ -88,7 +148,7 @@ printf("<ul>");
 printf("<li><a href=\"http://www.cs.mcgill.ca/~vwen/ass4/login.html\">Click here to login</a></li>");
 printf("<li><a href=\"http://www.cs.mcgill.ca/~ctrinh2/ass4/welcome.html\">Click here to return homet</a></li>");
 printf("</div>");
-printf("</BODY>");
+printf("</BODY");
 }
-*/	return 0;
+	return 0;
 }
