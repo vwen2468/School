@@ -3,18 +3,22 @@ import cgi
 import cgitb
 cgitb.enable()
 
-
+#Take user input
 formInput=cgi.FieldStorage()
 formInput="More rats"
-survey=open("survey.ssv", w)
+
+#Erase survey.ssv and write in formInput
+survey=open("survey.ssv", "w")
 survey.truncate(0)
-survey.write(%s  formInput)
+survey.write(formInput)
 survey.close
 
-survey=open("survey.ssv", r)
+#Name = first line
+survey=open("survey.ssv", "r")
 name = survey.readline()
 survey.close
 
+#Print webpage with name as the title of survey
 print "Content-Type:text/html\n"
 print '<!DOCTYPE HTML>'
 print '<link rel="stylesheet" href="surveyStyle.css">'

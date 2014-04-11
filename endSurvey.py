@@ -3,6 +3,7 @@ import cgi
 import cgitb;
 cgitb.enable()
 
+#Print new webpage
 print"Content-Type:text/html\n"
 
 print'<!DOCTYPE HTML>'

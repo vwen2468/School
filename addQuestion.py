@@ -3,20 +3,23 @@ import web
 import cgitb
 cgitb.enable()
 
-
+#Take user input
 formInput=cgi.FieldStorage()
 formInput="More rats?"
-survey=open("survey.ssv", w)
-survey.write(\n)
+
+#Add question to survey.ssv
+survey=open("survey.ssv", "a")
+survey.write("\n")
 survey.write(formInput)
 survey.close
 
-survey=open("survey.ssv", r)
+#Name = first line of survey.ssv
+survey=open("survey.ssv", "r")
 name = survey.readline()
 survey.close
 
 
-
+#Print webpage
 print "Content-Type:text/html\n"
 
 print "<!DOCTYPE HTML>" 
@@ -35,7 +38,7 @@ print '</form>'
 print '<p style="width:50%; float:left; margin-top:26px">'
 
 
-
+#Print the questions
 survey = open("survey.ssv", r)
 
 lines = survey.readlines()
