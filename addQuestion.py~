@@ -5,7 +5,7 @@ cgitb.enable()
 
 
 formInput=cgi.FieldStorage()
-formInput="More rats?"
+formInput="More stuffs"
 survey=open("survey.ssv", w)
 survey.write(\n)
 survey.write(formInput)

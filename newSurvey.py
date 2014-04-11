@@ -5,17 +5,17 @@ cgitb.enable()
 
 
 formInput=cgi.FieldStorage()
-formInput="Stuffs"
+formInput="More rats"
 survey=open("survey.ssv", w)
 survey.truncate(0)
-survey.write("%s" % formInput)
+survey.write(%s  formInput)
 survey.close
 
 survey=open("survey.ssv", r)
 name = survey.readline()
 survey.close
 
-print 'Content-Type:text/html\n'
+print "Content-Type:text/html\n"
 print '<!DOCTYPE HTML>'
 print '<link rel="stylesheet" href="surveyStyle.css">'
 print '<head>'
@@ -26,7 +26,7 @@ print '</head>'
 print '<BODY>'
 print '<form style="text-align:center">'
 print '<br>'
-print '<input type="text" value=%s style=/"font-size:15/"><br>' % name
+print "<input type=\"text\" value=%s style=\"font-size:15\"><br>" %name
 print '</form>'
 
 print '<p style="width:50%; float:left; margin-top:26px">'
