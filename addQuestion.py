@@ -9,17 +9,17 @@ if len(form)>0:
 	data= form["question"].value
 
 #Name = first line of survey.ssv
-survey=open("http://www.cs.mcgill.ca/~ctrinh2/cgi-bin/survey.ssv", "r")
+survey=open("survey.ssv", "r")
 name = survey.readline()
 survey.close
 
 #Add question to survey.ssv
-survey=open("http://www.cs.mcgill.ca/~ctrinh2/cgi-bin/survey.ssv", "a")
+survey=open("survey.ssv", "a")
 if len(form)>0:
 	survey.write(form["question"].value+ "\n")
 survey.close
 
-survey=open("http://www.cs.mcgill.ca/~ctrinh2/cgi-bin/survey.ssv", "r")
+survey=open("survey.ssv", "r")
 contents = survey.read()
 survey.close
 
@@ -41,7 +41,7 @@ if not contents:
 
 	print '<p>Enter the desired question in the text box and click "add" to add a question to your survey. Once you are done, click "done" to submit your 	survey.'
 	print '</p>' 
-	print '<form id="add" style="text-align:center" action="http://www.cs.mcgill.ca/~vwen/cgi-bin/addQuestion.py">'
+	print '<form id="add" style="text-align:center" action="http://www.cs.mcgill.ca/~ctrinh2/cgi-bin/addQuestion.py">'
 	print '<br>'
 	print '<textarea name="question" form="add" rows="4" cols= "70" autofocus></textarea><br>'
 	print '<span class="right">'
@@ -56,7 +56,7 @@ if not contents:
 	print '</div>'
 
 
-	print '<form action="http://www.cs.mcgill.ca/~vwen/cgi-bin/newSurvey.py" style="text-align:center">'
+	print '<form action="http://www.cs.mcgill.ca/~ctrinh2/cgi-bin/newSurvey.py" style="text-align:center">'
 	print '<input  type="submit"  value="New"  style="font-size:20px; font-family: "Times New Roman"; text-align:center">'
 	print '</form><br>'
 	print '<p style="text-align:center">'
@@ -82,7 +82,7 @@ if  contents:
 
 
 	#Print the questions
-	survey = open("http://www.cs.mcgill.ca/~ctrinh2/cgi-bin/survey.ssv", "r")
+	survey = open("survey.ssv", "r")
 
 	lines = survey.readlines()
 	for i in range(1, len(lines)):
@@ -93,7 +93,7 @@ if  contents:
 
 	print '<p>Enter the desired question in the text box and click "add" to add a question to your survey. Once you are done, click "done" to submit your 	survey.'
 	print '</p>' 
-	print '<form id="add" style="text-align: center" action="http://www.cs.mcgill.ca/~vwen/cgi-bin/addQuestion.py">'
+	print '<form id="add" style="text-align: center" action="http://www.cs.mcgill.ca/~ctrinh2/cgi-bin/addQuestion.py">'
 	print '<br>'
 	print '<textarea name="question" form="add" rows="4" cols= "70" autofocus></textarea><br>'
 	print '<span class="center">'
@@ -108,7 +108,7 @@ if  contents:
 	print '</div>'
 
 
-	print '<form action="http://www.cs.mcgill.ca/~vwen/cgi-bin/newSurvey.py" style="text-align:center">'
+	print '<form action="http://www.cs.mcgill.ca/~ctrinh2/cgi-bin/newSurvey.py" style="text-align:center">'
 	print '<input  type="submit"  value="New"  style="font-size:20px; font-family: "Times New Roman"; text-align:center">'
 	print '</form><br>'
 	print '<p style="text-align:center">'

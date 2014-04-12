@@ -9,13 +9,13 @@ if len(form)>0:
 	data= form["title"].value
 #Erase survey.ssv and write in formInput
 
-survey=open("http://www.cs.mcgill.ca/~ctrinh2/cgi-bin/survey.ssv", "w")
+survey=open("survey.ssv", "w")
 survey.truncate(0)
 if len(form)>0:
 	survey.write(data+ "\n")
 survey.close
 
-survey=open("http://www.cs.mcgill.ca/~ctrinh2/cgi-bin/survey.ssv", "r")
+survey=open("survey.ssv", "r")
 contents = survey.read()
 survey.close
 if not contents:
@@ -35,7 +35,7 @@ if not contents:
 	print 'Please enter a title for the survey to be created. Then, click on "new" to create the survey.'
 	print '</p>'
 
-	print '<form id="new" style="text-align:center" action="http://www.cs.mcgill.ca/~vwen/cgi-bin/newSurvey.py">'
+	print '<form id="new" style="text-align:center" action="http://www.cs.mcgill.ca/~ctrinh2/cgi-bin/newSurvey.py">'
 	print "<br>"
 	print '<textarea name="title" form="new" rows="4" cols= "70" autofocus></textarea><br>'
 
@@ -74,7 +74,7 @@ if  contents:
 	print 'Click "new" to create a new survey. Your current survey will however be deleted.'
 	print '</p>'
 
-	print '<form id="new" style="text-align:center" action="http://www.cs.mcgill.ca/~vwen/cgi-bin/newSurvey.py">'
+	print '<form id="new" style="text-align:center" action="http://www.cs.mcgill.ca/~ctrinh2/cgi-bin/newSurvey.py">'
 	print "<br>"
 	#print '<textarea name="title" id="new" rows="4" cols= "70" autofocus></textarea><br>'
 	print '<span class="right">'
@@ -88,7 +88,7 @@ if  contents:
 	print 'Enter the desired question in the text box below and click "add" to add your question to your survey. Once you are done, click "done" to submit your survey.'
 	print '</p>'
 
-	print '<form id="add" style="text-align:center" action="http://www.cs.mcgill.ca/~vwen/cgi-bin/addQuestion.py">'
+	print '<form id="add" style="text-align:center" action="http://www.cs.mcgill.ca/~ctrinh2/cgi-bin/addQuestion.py">'
 	print "<br>"
 	print '<textarea name="question" form="add" rows="4" cols= "70" autofocus></textarea><br>'
 	#print '<span class="right">'
